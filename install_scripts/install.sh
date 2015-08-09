@@ -3,7 +3,9 @@
 apt_get_install()
 {
     if [ $1 = yes ] || [ $1 = y ]
-        then sudo apt-get install $2
+        then 
+            echo -e "\e[32mInstalling $2\e[0m"
+            sudo apt-get install $2
     fi
 }
 
@@ -27,7 +29,6 @@ read -p "vim: " vim
 read -p "spfvim: " spfvim
 read -p "gcc: " gcc
 read -p "g++: " gpp
-read -p "syslog-ng: " syslog
 
 sudo apt-get update
 
@@ -39,5 +40,7 @@ apt_get_install $automake automake
 apt_get_install $autoconf autoconf
 apt_get_install $vim vim
 install_spfvim $spfvim
+apt_get_install $gcc gcc
+apt_get install $gpp g++
 
 
